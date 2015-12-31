@@ -1,5 +1,5 @@
 # java-jdk9
 
-A Docker image fori use as a JShell playground
+A Docker image for use as a JShell playground
 
 
