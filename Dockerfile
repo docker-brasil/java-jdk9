@@ -1,5 +1,13 @@
 FROM buildpack-deps:sid-curl
 
+#
+# based on oficial version java:openjdk-9-b96 avaiable in https://hub.docker.com/r/library/java/tags/
+#
+
+MAINTAINER João Antonio Ferreira "joao.parana@gmail.com"
+
+ENV REFRESHED_AT 2015-12-30
+
 # A few problems with compiling Java from source:
 #  1. Oracle.  Licensing prevents us from redistributing the official JDK.
 #  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
