@@ -1,13 +1,12 @@
 FROM debian:sid
 
-# FROM debian:8.2
-
 # FROM buildpack-deps:sid-curl
 # buildpack-deps:sid-curl is a Debian sid (unstable)
 # with ca-certificates, curl and wget
 
 #
-# based on oficial version java:openjdk-9-b96 avaiable in https://hub.docker.com/r/library/java/tags/
+# based on oficial version java:openjdk-9-b96 avaiable
+# in https://hub.docker.com/r/library/java/tags/
 #
 
 MAINTAINER João Antonio Ferreira "joao.parana@gmail.com"
@@ -18,10 +17,6 @@ ENV REFRESHED_AT 2016-01-01
 #  1. Oracle.  Licensing prevents us from redistributing the official JDK.
 #  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
 #       really hairy.
-
-# RUN apt-get update && apt-get install -y --no-install-recommends \
-#     ca-certificates \
-#     curl
 
 RUN echo 'deb http://httpredir.debian.org/debian experimental main' > /etc/apt/sources.list.d/experimental.list
 
@@ -43,9 +38,6 @@ RUN set -x \
 RUN set -x \
 	  && apt-get update \
 	  && apt-get install -y \
-#   && apt-get install -y --fix-missing \
-#      openjdk-9-jre-headless="$JAVA_DEBIAN_VERSION" \
-#      openjdk-9-jre="$JAVA_DEBIAN_VERSION" \
 	  	 openjdk-9-jdk="$JAVA_DEBIAN_VERSION" \
 	  	 ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" \
 	  && rm -rf /var/lib/apt/lists/*
