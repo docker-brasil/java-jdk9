@@ -13,7 +13,9 @@ ENV REFRESHED_AT 2015-12-30
 #  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
 #       really hairy.
 
-RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update
 
 RUN echo 'deb http://httpredir.debian.org/debian experimental main' > /etc/apt/sources.list.d/experimental.list
 
