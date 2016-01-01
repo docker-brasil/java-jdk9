@@ -6,14 +6,12 @@ FROM buildpack-deps:sid-curl
 
 MAINTAINER João Antonio Ferreira "joao.parana@gmail.com"
 
-ENV REFRESHED_AT 2015-12-30
+ENV REFRESHED_AT 2016-01-01
 
 # A few problems with compiling Java from source:
 #  1. Oracle.  Licensing prevents us from redistributing the official JDK.
 #  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
 #       really hairy.
-
-# RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update
 
@@ -46,4 +44,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends libfontconfig1 
 # If you're reading this and have any feedback on how this image could be
 #   improved, please open an issue or a pull request so we can discuss it!
 
-CMD ["jshell"]
+WORKDIR /playground
+
+CMD ["bash"]
